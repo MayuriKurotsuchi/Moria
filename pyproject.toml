@@ -1,0 +1,20 @@
+[project]
+name = "Gandalf"
+version = "0.1"
+description = "Login and Password"
+authors = [
+    {name = "Mayuri", email = "martin.hainaut@ifosup.wavre.be"},
+]
+dependencies = []
+requires-python = ">=3.11, <3.12"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm.dev-dependencies]
+tools = [
+    "black>=23.7.0",
+    "ruff>=0.0.287",
+]
+
+[tool.ruff]
+select = ["E","F","I"]
