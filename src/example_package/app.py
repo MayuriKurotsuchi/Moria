@@ -1,6 +1,10 @@
 def create_user():
-    pass
-
+    user_login = input("Ask for a new login:")
+    if user_login in users.keys():
+        print(" user already exists ERROR")
+    else:
+        users[user_login] = []
+        print("notice: User created.")
 
 def remove_user():
     pass
