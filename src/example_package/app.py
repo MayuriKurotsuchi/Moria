@@ -37,6 +37,13 @@ def list_items():
 def search_by_name():
     pass
 
+def ask_for_number() -> int:
+    choice : str = input("your choice: ")
+    if choice.isdigit():
+        return int(choice)
+    else: 
+        print("Error: Not a number")
+        return -1
 def main():
     print("Welcome to Gandalf!".center(100, "="))
 
@@ -51,7 +58,7 @@ def main():
               >r0 Exit
               """)
         
-        choice = int(input("Your choice: "))
+        choice = ask_for_number() #int(input("Your choice: "))
 
         match choice:
             case 1: 
