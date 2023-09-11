@@ -7,8 +7,14 @@ def create_user():
         print("notice: User created.")
 
 def remove_user():
-    pass
-
+    user_login = input("User login ?")
+    if user_login in users.keys():
+        confirmation = input("Sure you want to delete account ? (YES or NO): ")
+        if confirmation == "YES":
+            del users[user_login]
+            print("notice succesfully removed")        
+        else:
+            print("ERROR")
 
 def login():
     pass
