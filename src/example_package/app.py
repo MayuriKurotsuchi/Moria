@@ -38,7 +38,7 @@ def login():
     
 
 def create_item():
-    pass
+    
 
 
 def remove_item():
@@ -48,6 +48,10 @@ def edit_item():
     pass
 
 def list_item():
+    for item in active_vault:
+        item_name, item_login, item_pass = item
+        print(item_name)
+
     pass
 
 
@@ -60,6 +64,10 @@ def search_items():
 
 
 def list_items():
+    query = input("enter beginning of the name: ")
+    for item in active_vault:
+        item_name,_,_ = item
+        
     pass
 
 
