@@ -32,13 +32,13 @@ def login():
     #show new menu
     login = input("Ask user name: ")
     if login in users:
-        #global active_vault
+        global active_vault
         active_vault = users[login]
         # show_menu()
     
 
 def create_item():
-    
+    pass
 
 
 def remove_item():
@@ -56,7 +56,9 @@ def list_item():
 
 
 def show_items():
-    pass
+    item_name = input("Enter item's name: ")
+    if item_name in active_vault:
+        print(item_name)
 
 
 def search_items():
@@ -64,15 +66,15 @@ def search_items():
 
 
 def list_items():
-    query = input("enter beginning of the name: ")
-    for item in active_vault:
-        item_name,_,_ = item
-        
     pass
 
 
 def search_by_name():
-    pass
+    query = input("enter beginning of the name: ")
+    for item in active_vault:
+        item_name,_,_ = item
+        if item_name.startswith(query):
+            print(item_name)
 
 def ask_for_number() -> int:
     choice : str = input("your choice: ")
