@@ -1,10 +1,19 @@
+def notice(text: str):
+    print(f"Notice: {text}")
+
+def error(text: str):
+    print(f"Error: {text}")   
+
+def warning(text: str):
+    print(f"Warning: {text}") 
+
 def create_user():
     user_login = input("Ask for a new login:")
     if user_login in users.keys():
-        print(" user already exists ERROR")
+        error("user not found?.")
     else:
         users[user_login] = []
-        print("notice: User created.")
+        notice(": User created.")
 
 def remove_user():
     user_login = input("Enter your login: ")
@@ -14,11 +23,19 @@ def remove_user():
             del users[user_login]
             print("notice succesfully removed")        
         else:
-            print("ERROR")
+            error("ERROR")
 
 def login():
-    pass
-
+    #ask user name
+    #verify existensy in in data
+    #get associated vault
+    #show new menu
+    login = input("Ask user name: ")
+    if login in users:
+        #global active_vault
+        active_vault = users[login]
+        # show_menu()
+    
 
 def create_item():
     pass
@@ -27,6 +44,8 @@ def create_item():
 def remove_item():
     pass
 
+def edit_item():
+    pass
 
 def list_item():
     pass
@@ -65,7 +84,7 @@ def main():
               \r2 Remove user
               \r3 login
               
-              >r0 Exit
+              \r0 Exit
               """)
         
         choice = ask_for_number() #int(input("Your choice: "))
@@ -85,5 +104,5 @@ def main():
 if __name__ == "__main__":
     #Some variables
     users: dict[str,list[tuple[str,str,str]]] = {} #key: str, value: list of tuples
-    
+    active_vault:  list[tuple[str,str,str]] = []
     main()
