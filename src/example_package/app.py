@@ -38,8 +38,13 @@ def login():
     
 
 def create_item():
-    pass
-
+# ask for informations (website, log and password)
+    item_id = input("ask website: ")
+    #item_login = input("ask for a login: ")
+    #item_password = input("ask for a password: ")
+    active_vault.append(item_id)
+    print(f"Notice: {item_id}")
+    
 
 def remove_item():
     pass
@@ -54,20 +59,10 @@ def list_item():
 
     pass
 
-
 def show_items():
     item_name = input("Enter item's name: ")
     if item_name in active_vault:
         print(item_name)
-
-
-def search_items():
-    pass
-
-
-def list_items():
-    pass
-
 
 def search_by_name():
     query = input("enter beginning of the name: ")
@@ -113,6 +108,6 @@ def main():
 # Entry point
 if __name__ == "__main__":
     #Some variables
-    users: dict[str,list[tuple[str,str,str]]] = {} #key: str, value: list of tuples
-    active_vault:  list[tuple[str,str,str]] = []
+    users: dict[str,list[str]] = {} #key: str, value: list of tuples
+    active_vault:  list[str] = []
     main()
