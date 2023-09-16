@@ -69,17 +69,28 @@ def create_item():
     
 
 def remove_item():
-    pass
+    item_name = input("Enter item name: ")
+    if item_name in active_vault:
+        active_vault.remove(item_name)
+        notice(f"Item {item_name} remove done.")
+    else:
+        error(f"Item {item_name} not found in vault.")
+        
+
+    
 
 def edit_item():
-    pass
+    item_name = input("Enter item name: ")
+    if item_name in active_vault:
+        active_vault.remove(item_name)
+        
 
 def list_item():
     for item in active_vault:
         item_name, item_login, item_pass = item
         print(item_name)
 
-    pass
+    
 
 def show_items():
     item_name = input("Enter item's name: ")
