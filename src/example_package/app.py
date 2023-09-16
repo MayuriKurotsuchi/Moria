@@ -71,6 +71,10 @@ def show_menu():
                 show_items()
             case 6:
                 search_by_name()
+            case 0:
+                exit()
+            case _:
+                print("Error")
 
 # Function to create a new  item in vault
 def create_item():
@@ -155,7 +159,7 @@ def main():
             case 0:
                 exit()
             case _:
-                print("Kraken")
+                print("Error")
 
 
 # Entry point for user and vault data
