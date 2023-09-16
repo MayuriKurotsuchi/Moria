@@ -1,3 +1,4 @@
+# Define functions for notices, errors and warnings
 def notice(text: str):
     print(f"Notice: {text}")
 
@@ -7,6 +8,7 @@ def error(text: str):
 def warning(text: str):
     print(f"Warning: {text}") 
 
+# function to create new user account
 def create_user():
     user_login = input("Ask for a new login:")
     if user_login in users.keys():
@@ -15,6 +17,7 @@ def create_user():
         users[user_login] = []
         notice(": User created.")
 
+# function to create a new user account
 def remove_user():
     user_login = input("Enter your login: ")
     if user_login in users.keys():
@@ -25,6 +28,7 @@ def remove_user():
         else:
             error("ERROR")
 
+# Function for user login
 def login():
     #ask user name
     #verify existensy in in data
@@ -35,7 +39,8 @@ def login():
         global active_vault
         active_vault = users[login]
         show_menu()
-    
+
+# Function to define the main menu  
 def show_menu():
     print("Menu".center(100,"="))
     
@@ -58,7 +63,16 @@ def show_menu():
                 create_item()
             case 2:
                 remove_item()
+            case 3:
+                edit_item()
+            case 4:
+                list_item()
+            case 5:
+                show_items()
+            case 6:
+                search_by_name()
 
+# Function to create a new  item in vault
 def create_item():
 # ask for informations (website, log and password)
     item_id = input("ask website: ")
@@ -67,7 +81,7 @@ def create_item():
     active_vault.append(item_id)
     print(f"Notice: {item_id}")
     
-
+# function to remove an item in vault
 def remove_item():
     item_name = input("Enter item name: ")
     if item_name in active_vault:
@@ -75,28 +89,29 @@ def remove_item():
         notice(f"Item {item_name} remove done.")
     else:
         error(f"Item {item_name} not found in vault.")
-        
+
 
     
-
+# Function to edit item in the vault
 def edit_item():
     item_name = input("Enter item name: ")
     if item_name in active_vault:
         active_vault.remove(item_name)
         
-
+# function to list items in the vault
 def list_item():
     for item in active_vault:
         item_name, item_login, item_pass = item
         print(item_name)
 
     
-
+# Function to show items detail in the vault
 def show_items():
     item_name = input("Enter item's name: ")
     if item_name in active_vault:
         print(item_name)
 
+# function to search item by name in the vault
 def search_by_name():
     query = input("enter beginning of the name: ")
     for item in active_vault:
@@ -104,6 +119,7 @@ def search_by_name():
         if item_name.startswith(query):
             print(item_name)
 
+# Function to ask the user for number input
 def ask_for_number() -> int:
     choice : str = input("your choice: ")
     if choice.isdigit():
@@ -111,6 +127,8 @@ def ask_for_number() -> int:
     else: 
         print("Error: Not a number")
         return -1
+
+# main program entry point
 def main():
     print("Welcome to Gandalf!".center(100, "="))
 
@@ -140,7 +158,7 @@ def main():
                 print("Kraken")
 
 
-# Entry point
+# Entry point for user and vault data
 if __name__ == "__main__":
     #Some variables
     users: dict[str,list[str]] = {} #key: str, value: list of tuples
