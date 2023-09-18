@@ -1,12 +1,15 @@
+from colorama import Fore, Style, init
+
+
 # Define functions for notices, errors and warnings
 def notice(text: str):
-    print(f"Notice: {text}")
+    print(Fore.LIGHTBLUE_EX +f"Notice: {text}")
 
 def error(text: str):
-    print(f"Error: {text}")   
+    print(Fore.LIGHTRED_EX + f"Error: {text}")   
 
 def warning(text: str):
-    print(f"Warning: {text}") 
+    print(Fore.LIGHTYELLOW_EX + f"Warning: {text}") 
 
 # function to create new user account
 def create_user():
@@ -101,6 +104,11 @@ def edit_item():
     item_name = input("Enter item name: ")
     if item_name in active_vault:
         active_vault.remove(item_name)
+        new_item_name = input("Enter the new item name: ")
+        active_vault.append(new_item_name)
+        print("Item edited successfully.")
+    else:
+        print("Item not found in the vault.")
         
         
 # function to list items in the vault
@@ -135,7 +143,7 @@ def ask_for_number() -> int:
 
 # main program entry point
 def main():
-    print("Welcome to Gandalf!".center(100, "="))
+    print(Style.BRIGHT + "Welcome to Gandalf!".center(100, "="))
 
     choice : int = -1 !=0 #eqv to choice int = -1
 
@@ -166,6 +174,8 @@ def main():
 # Entry point for user and vault data
 if __name__ == "__main__":
     #Some variables
+    init(autoreset=True)
+
     users: dict[str,list[str]] = {} #key: str, value: list of tuples
     active_vault:  list[str] = []
     main()

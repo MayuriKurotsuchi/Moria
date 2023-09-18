@@ -5,7 +5,9 @@ description = "Login and Password"
 authors = [
     {name = "Mayuri", email = "martin.hainaut@ifosup.wavre.be"},
 ]
-dependencies = []
+dependencies = [
+    "colorama>=0.4.6",
+]
 requires-python = ">=3.11, <3.12"
 readme = "README.md"
 license = {text = "MIT"}
