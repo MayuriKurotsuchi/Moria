@@ -24,7 +24,7 @@ def remove_user():
         confirmation = input("Sure you want to delete account ? (YES or NO): ")
         if confirmation == "YES":
             del users[user_login]
-            print("notice succesfully removed")        
+            notice("Succesfully removed")        
         else:
             error("ERROR")
 
@@ -83,7 +83,7 @@ def create_item():
     #item_login = input("ask for a login: ")
     #item_password = input("ask for a password: ")
     active_vault.append(item_id)
-    print(f"Notice: {item_id}")
+    notice(f" {item_id}")
     
 # function to remove an item in vault
 def remove_item():
@@ -102,11 +102,12 @@ def edit_item():
     if item_name in active_vault:
         active_vault.remove(item_name)
         
+        
 # function to list items in the vault
 def list_item():
     for item in active_vault:
         item_name, item_login, item_pass = item
-        print(item_name)
+        notice(item_name)
 
     
 # Function to show items detail in the vault
