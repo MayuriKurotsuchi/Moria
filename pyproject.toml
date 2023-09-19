@@ -1,14 +1,15 @@
 [project]
-name = "Gandalf"
-version = "0.1"
-description = "Login and Password"
+name = ""
+version = ""
+description = ""
 authors = [
+    {name = "Mayuri", email = "martin.hainaut@ifosup.wavre.be"},
     {name = "Mayuri", email = "martin.hainaut@ifosup.wavre.be"},
 ]
 dependencies = [
     "colorama>=0.4.6",
 ]
-requires-python = ">=3.11, <3.12"
+requires-python = ">=3.11"
 readme = "README.md"
 license = {text = "MIT"}
 

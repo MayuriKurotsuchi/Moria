@@ -1,4 +1,20 @@
-from colorama import Fore, Style, init
+import os
+import pickle
+
+from colorama import Fore, Style, init  #vice versa ligne 1&2
+
+
+def save():
+    with open("data.dat","wb", encoding="utf8") as file: # polisse les accents etc
+        pickle.dump(users,file)
+
+
+def load() -> dict:
+    if os.exists("data.dat"):
+        with open("data.dat","rb",encoding="utf8") as file:
+            return pickle.load(file)
+    else:
+        return {}
 
 
 # Define functions for notices, errors and warnings
@@ -75,6 +91,7 @@ def show_menu():
             case 6:
                 search_by_name()
             case 0:
+                save()
                 exit()
             case _:
                 print("Error")
@@ -166,6 +183,7 @@ def main():
             case 3:
                 login()
             case 0:
+                save()
                 exit()
             case _:
                 print("Error")
@@ -176,6 +194,6 @@ if __name__ == "__main__":
     #Some variables
     init(autoreset=True)
 
-    users: dict[str,list[str]] = {} #key: str, value: list of tuples
+    users: dict[str,list[str]] = load() #key: str, value: list of tuples
     active_vault:  list[str] = []
     main()
