@@ -99,7 +99,8 @@ def show_menu():
 # Function to create a new  item in vault
 def create_item():
 # ask for informations (website, log and password)
-    item_id = input("ask website: ")
+    item_id = input("ask item name: ")
+    item_website = ("Ask website:")
     #item_login = input("ask for a login: ")
     #item_password = input("ask for a password: ")
     active_vault.append(item_id)
