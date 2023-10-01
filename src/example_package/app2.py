@@ -33,12 +33,39 @@ class App:
     pass
 
     def create_user(self):
-        pass
+        #Ask for login and password
+        user_login = input("Enter your login: ")
+        user_pwd = input("Enter your password: ")
+
+        #Create an User
+        user = User(login=user_login,password=user_pwd)
+
+        if user not in self.users:
+            self.users[user] = Vault() # add user to data
+            self.notice("User connected")
+        else: 
+            self.warning("User already exists. Please log in")
+
 
     def login(self):
+        # Ask for a login
+
+        # Ask for a password
+        # check if user exist
+        # check password validity
+        # if ok, set as active user
+        #show submenu
+        #else error
         pass
 
+
     def remove_user(self):
+        # Ask for login
+        #check if exists
+        # if exists ask password
+        # check password validity
+        # if OK, remove user AND vault
+
         pass
     
     def vault_menu(self):
@@ -46,7 +73,7 @@ class App:
         vault menu
         """
     
-        print(Style.BRIGHT + f"{self.active_user.login}'s Vault .center(100,"°"))
+        print(Style.BRIGHT + f"{self.active_user.login}'s Vault".center(100,"°"))
     
         choice : int = -1 !=0 #eqv to choice int = -1
     
@@ -65,6 +92,12 @@ class App:
             match choice:
             case 1:
                     create_item()
+                    #ask login
+                    #ask pwd
+                    #ask website
+                    #ask for name
+                    #check if name not exists
+                    #create item
                 case 2:
                     remove_item()
                 case 3:

@@ -10,7 +10,7 @@ def save():
 
 
 def load() -> dict:
-    if os.exists("data.dat"):
+    if os.path.exists("data.dat"):
         with open("data.dat","rb",encoding="utf8") as file:
             return pickle.load(file)
     else:
