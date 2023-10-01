@@ -35,6 +35,9 @@ class Vault :
         item = Item(name,website,login,password)
         if name not in self.items:
             self.items[name] = item
+            return True
+        else:
+            return False
             
 
     def show_items(self):
