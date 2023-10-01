@@ -1,7 +1,7 @@
 class User :
     def __init__(self, login:str, password:str): #object constructor
-        self.login : str = "" # property = self.
-        self.password : str = "" 
+        self.login : str = login #property = self.
+        self.password : str = password
         self.vault : Vault = Vault()
 
     def check_password(self, password:str) -> bool:
